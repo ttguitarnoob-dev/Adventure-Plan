@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react'
 function AddStop(){
     const {id} = useParams()
     const [adventure, setAdventure] = useState({})
-    let editedAdventure = {}
+    let editedAdventure = {adventure}
     const handleFetch = async () => {
         try {
             //URL will need to be the heroku backend server
@@ -14,8 +14,8 @@ function AddStop(){
             const foundAdventure = await response.json()
             console.log('found adventure', foundAdventure)
             setAdventure(foundAdventure)
-            editedAdventure = foundAdventure
-            console.log('editied aventure', editedAdventure)
+            
+
 
         } catch(err){
             console.log('adventure details fetch errrr', err)
@@ -26,8 +26,17 @@ function AddStop(){
         handleFetch()
     }, [])
 
-    const handleSubmit = (e) => {
+    const handleStopChange = (e) => {
+        console.log('omg')
+    }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        adventure.stops.push({
+            name: e.target[0].value,
+            description: e.target[1].value
+        })
+        console.log(adventure)
     }
 
     return(<div>
