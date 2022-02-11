@@ -1,8 +1,9 @@
 
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 
 function AddStop(){
+    const navigate = useNavigate()
     const {id} = useParams()
     const [adventure, setAdventure] = useState({})
     let editedAdventure = {adventure}
@@ -14,9 +15,6 @@ function AddStop(){
             const foundAdventure = await response.json()
             console.log('found adventure', foundAdventure)
             setAdventure(foundAdventure)
-            
-
-
         } catch(err){
             console.log('adventure details fetch errrr', err)
         }
@@ -36,7 +34,26 @@ function AddStop(){
             name: e.target[0].value,
             description: e.target[1].value
         })
-        console.log(adventure)
+        console.log("this is what's going into the update adventure function", adventure)
+        updateAdventure(adventure)
+    }
+
+    const updateAdventure = async (data) => {
+        //URL will need to be the heroku backend address
+        const URL = `http://localhost:8000/adventures/${id}`
+        const options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json"
+            }
+        }
+        try{
+            const updatedAdventure = await fetch(URL, options)
+            navigate(`/adventures/${id}`)
+        }catch(err){
+            console.log('updateadventure errreerr', err)
+        }
     }
 
     return(<div>
