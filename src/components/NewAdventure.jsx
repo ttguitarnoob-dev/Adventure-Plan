@@ -1,8 +1,11 @@
 import { paste } from '@testing-library/user-event/dist/paste'
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function NewAdventure(props) {
     const {adventures} = props
+    const {setAdventures} = props
+    const navigate = useNavigate()
 
     let initialInput = {
         name: ``,
@@ -48,6 +51,8 @@ function NewAdventure(props) {
             const createdAdventure = await fetch(URL, options)
             const parsedAdventure = await createdAdventure.json()
             console.log('parsed adventure', parsedAdventure)
+            setAdventures([...adventures, parsedAdventure])
+            navigate('/adventures')
         }catch(err){
             console.log('newadventure errrorrr', err)
         }
