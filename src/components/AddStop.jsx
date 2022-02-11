@@ -37,7 +37,7 @@ function AddStop(){
         console.log("this is what's going into the update adventure function", adventure)
         updateAdventure(adventure)
     }
-
+console.log('wow')
     const updateAdventure = async (data) => {
         //URL will need to be the heroku backend address
         const URL = `http://localhost:8000/adventures/${id}`
