@@ -9,12 +9,13 @@ import AdventureDetails from './components/AdventureDetails';
 import NewAdventure from './components/NewAdventure';
 import Search from './components/Search';
 import SearchDetails from './components/SearchDetails';
+import Navigation from './components/Navigation';
 function HomePage(){
   return(<>
     <h1>Home Page</h1>
-    <Link to="/adventures">All Adventures</Link>
+    {/* <Link to="/adventures">All Adventures</Link>
     <Link to="/adventures/new">New Adventure</Link>
-    <Link to="/search">Search for Cool Places</Link>
+    <Link to="/search">Search for Cool Places</Link> */}
   </>)
 }
 
@@ -49,6 +50,7 @@ function App() {
   console.log('current main data state', adventures)
   return (
     <div className="App">
+    <Navigation />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/adventures' element={<AllAdventures adventures={adventures} />} />
