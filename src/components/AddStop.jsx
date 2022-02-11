@@ -1,9 +1,11 @@
-import {useParams, Link} from 'react-router-dom'
+
+import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 
-function AdventureDetails(){
+function AddStop(){
     const {id} = useParams()
     const [adventure, setAdventure] = useState({})
+    let editedAdventure = {}
     const handleFetch = async () => {
         try {
             //URL will need to be the heroku backend server
@@ -12,6 +14,9 @@ function AdventureDetails(){
             const foundAdventure = await response.json()
             console.log('found adventure', foundAdventure)
             setAdventure(foundAdventure)
+            editedAdventure = foundAdventure
+            console.log('editied aventure', editedAdventure)
+
         } catch(err){
             console.log('adventure details fetch errrr', err)
         }
@@ -20,21 +25,28 @@ function AdventureDetails(){
     useEffect(() => {
         handleFetch()
     }, [])
-console.log('adventureestiops', adventure.stops)
+
+    const handleSubmit = (e) => {
+
+    }
+
     return(<div>
-        <h1>{adventure.name}</h1>
-            {adventure.stops && adventure.stops.map((oneStop, index) => (
+        <h1>add stop page</h1>
+        <h2>{adventure.name}</h2>
+        {adventure.stops && adventure.stops.map((oneStop, index) => (
         <div className='stop-details' key={index}>
                 <h2 className='stop-name'>Stop {index +1}:</h2>
                 <h3>{oneStop.name}</h3>
                  <p>{oneStop.description}</p>
-
         </div>
             ))}
-            <Link to={`/adventures/update/${id}`}>Add a Stop</Link>
-
-        {/* <p>{adventure.stops.name}</p> */}
+            <form onSubmit={handleSubmit}>
+            <label htmlFor="stop">New Stop Name:</label>
+                <input type="text" name="stop" placeholder='New Stop Name Here' />
+                <textarea name="stop-description" id="" cols="30" rows="10"></textarea>
+                <button>Add Stop</button>
+            </form>
     </div>)
 }
 
-export default AdventureDetails
+export default AddStop

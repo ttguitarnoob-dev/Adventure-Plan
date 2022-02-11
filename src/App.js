@@ -10,6 +10,7 @@ import NewAdventure from './components/NewAdventure';
 import Search from './components/Search';
 import SearchDetails from './components/SearchDetails';
 import Navigation from './components/Navigation';
+import AddStop from './components/AddStop';
 function HomePage(){
   return(<>
     <h1>Home Page</h1>
@@ -58,6 +59,8 @@ function App() {
         <Route path='/adventures/:id' element={<AdventureDetails />} />
         <Route path='/search' element={<Search />} />
         <Route path='/search/:id' element={<SearchDetails />} />
+        <Route path='/adventures/update/:id' element={<AddStop />} />
+        
       </Routes>
     </div>
   );
