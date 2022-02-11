@@ -1,3 +1,4 @@
+import { paste } from '@testing-library/user-event/dist/paste'
 import { useState } from 'react'
 
 function NewAdventure(props) {
@@ -10,8 +11,6 @@ function NewAdventure(props) {
             description: ``
         }]
     }
-// console.log('initialinput', initialInput)
-//     const [input, setInput] = useState(initialInput)
 
     const handlePlanNameChange = (e) => {
         initialInput.name = e.target.value
@@ -31,6 +30,27 @@ function NewAdventure(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('submititit this', initialInput)
+        newAdventure(initialInput)
+    }
+
+    const newAdventure = async (data) => {
+        //URL will need to be the heroku backend address
+        const URL = "http://localhost:8000/adventures"
+        const options = {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json"
+            }
+        }
+        try{
+            // console.log('data inside newadventure', data)
+            const createdAdventure = await fetch(URL, options)
+            const parsedAdventure = await createdAdventure.json()
+            console.log('parsed adventure', parsedAdventure)
+        }catch(err){
+            console.log('newadventure errrorrr', err)
+        }
     }
 
     return (<div>
