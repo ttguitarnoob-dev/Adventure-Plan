@@ -25,6 +25,8 @@ function HomePage(){
 function App() {
   //MAIN DATA STATE
   const [adventures, setAdventures] = useState([])
+  const navigate = useNavigate()
+  
 
   //FUNCTIONS
   
@@ -45,9 +47,24 @@ function App() {
   //HandleFetch function call
   useEffect(() => {
     handleFetch()
-
-    
   }, [])
+
+  async function DeleteAdventure(id){
+    
+    //URL will need to be the heroku backend server
+    const DURL = `http://localhost:8000/adventures/${id}`
+    try{
+      const response = await fetch(DURL, { method: "DELETE" })
+      const deletedAdventure = await response.json()
+      const updatedAdventureList = adventures.filter(adventure => adventure._id !== deletedAdventure._id)
+      setAdventures(updatedAdventureList)
+      navigate('/adventures')
+
+    }catch(err) {
+      console.log('deleting errrror', err)
+    }
+  }
+
   console.log('current main data state', adventures)
   return (
     <div className="App">
@@ -56,7 +73,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/adventures' element={<AllAdventures adventures={adventures} />} />
         <Route path='/adventures/new' element={<NewAdventure adventures={adventures} setAdventures={setAdventures}/>} />
-        <Route path='/adventures/:id' element={<AdventureDetails />} />
+        <Route path='/adventures/:id' element={<AdventureDetails DeleteAdventure={DeleteAdventure}/>} />
         <Route path='/search' element={<Search />} />
         <Route path='/search/:id' element={<SearchDetails />} />
         <Route path='/adventures/update/:id' element={<AddStop />} />
