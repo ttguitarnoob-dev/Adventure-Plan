@@ -23,12 +23,44 @@ function HomePage(){
 
 
 function App() {
-  //MAIN DATA STATE
   const [adventures, setAdventures] = useState([])
+  const [search, setSearch] = useState()
   const navigate = useNavigate()
   
 
   //FUNCTIONS
+
+  //API Fetching
+ 
+    async function GrabCoordinates(search){
+      const URL = `https://api.opentripmap.com/0.1/en/places/geoname?name=${search}&country=US&apikey=${process.env.REACT_APP_OPEN_TRIP_API_KEY}`
+      const options = {
+        method: "GET"
+      }
+      console.log('searched URL isssisis', URL)
+  
+      const response = await fetch(URL, options)
+      const coordinates = await response.json()
+      console.log('coordinates', coordinates)
+      LocationResults(coordinates)
+    }
+
+
+
+    async function LocationResults(coordinates){
+    const URL = `https://api.opentripmap.com/0.1/en/places/radius?radius=500&lon=${coordinates.lon}&lat=${coordinates.lat}&limit=50&apikey=${process.env.REACT_APP_OPEN_TRIP_API_KEY}`
+    const options = {
+      method: "GET"
+    }
+    console.log('searched lon lat url is', URL)
+    const response = await fetch(URL, options)
+    const results = await response.json()
+    console.log('final search results', results.features)
+    setSearch(results.features)
+    console.log('updated search state', search)
+  }
+
+  
   
   //Fetch all present data on load
   
@@ -74,10 +106,9 @@ function App() {
         <Route path='/adventures' element={<AllAdventures adventures={adventures} />} />
         <Route path='/adventures/new' element={<NewAdventure adventures={adventures} setAdventures={setAdventures}/>} />
         <Route path='/adventures/:id' element={<AdventureDetails DeleteAdventure={DeleteAdventure}/>} />
-        <Route path='/search' element={<Search />} />
+        <Route path='/search' element={<Search search={search} GrabCoordinates={GrabCoordinates}/>} />
         <Route path='/search/:id' element={<SearchDetails />} />
         <Route path='/adventures/update/:id' element={<AddStop />} />
-        
       </Routes>
     </div>
   );
