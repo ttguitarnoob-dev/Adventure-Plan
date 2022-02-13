@@ -2,9 +2,9 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
 
-function SearchDetails(){
-    const {id} = useParams()
-    const [info, setInfo] = useState()
+function SearchDetails() {
+    const { id } = useParams()
+    const [info, setInfo] = useState(null)
     const options = {
         method: "GET"
     }
@@ -16,18 +16,51 @@ function SearchDetails(){
             const foundItem = await response.json()
             console.log('found item', foundItem)
             setInfo(foundItem)
-        } catch(err){
+        } catch (err) {
             console.log('searchdetails errerro', err)
         }
     }
-useEffect(() => {
-    handleFetch()
-}, [])
 
-    return(<div>
-        <h1>Search Details</h1>
-        <h2>{info.name}</h2>
-    </div>)
+    function HasImage(){
+        return (<div>
+            {console.log(info)}
+            <h2>{info.name}</h2>
+            <img src={info.preview.source} alt="" />
+            <div className="address">
+            <h3>Address:</h3>
+                <p>{info.address.house_number} {info.address.road}</p>
+                <p>{info.address.city}, {info.address.state}</p>
+                <p>{info.address.postcode}</p>
+            </div>
+        </div>) 
+    }
+
+    function NoHasImage(){
+        return (<div>
+            {console.log(info)}
+            <h2>{info.name}</h2>
+            <div className="address">
+            <h3>Address:</h3>
+                <p>{info.address.house_number} {info.address.road}</p>
+                <p>{info.address.city}, {info.address.state}</p>
+                <p>{info.address.postcode}</p>
+            </div>
+            
+        </div>)
+    }
+    useEffect(() => {
+        handleFetch()
+    }, [])
+
+    if (!info) {
+        return <p>Please wait while we retreive your request...</p>
+    }
+if (info.preview){
+    return <HasImage />
+} else {
+    return <NoHasImage />
+}
+    
 }
 
 export default SearchDetails
