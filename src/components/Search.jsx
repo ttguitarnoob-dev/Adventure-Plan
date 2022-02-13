@@ -5,20 +5,32 @@ import { useState, useEffect } from 'react'
 
 function Search(props) {
 const {GrabCoordinates} = props
+const {search} = props
 
 function HandleSubmit(e){
     e.preventDefault()
     const denver = "Denver"
-
-    GrabCoordinates(denver)
+console.log('search input', e.target[0].value)
+    GrabCoordinates(e.target[0].value)
 
 }
     return (<div>
-        <h1>Search</h1>
+        <h1>Search For Interesting Locations Near Your Destination</h1>
         <form onSubmit={HandleSubmit}>
-            <button>Search for Denver</button>
-        </form>
+            <label htmlFor="city"></label>
+            <input 
+            type="text" 
+            name='city'
+            id='city'
+            placeholder='Enter City or Town'
+            />
 
+            <button>Search</button>
+        </form>
+<div className='search-results'>
+    
+
+</div>
     </div>)
 }
 

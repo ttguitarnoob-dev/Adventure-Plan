@@ -23,8 +23,8 @@ function HomePage(){
 
 
 function App() {
-  //MAIN DATA STATE
   const [adventures, setAdventures] = useState([])
+  const [search, setSearch] = useState()
   const navigate = useNavigate()
   
 
@@ -48,7 +48,7 @@ function App() {
 
 
     async function LocationResults(coordinates){
-    const URL = `https://api.opentripmap.com/0.1/en/places/radius?radius=500&lon=${coordinates.lon}&lat=${coordinates.lat}&limit=30&apikey=${process.env.REACT_APP_OPEN_TRIP_API_KEY}`
+    const URL = `https://api.opentripmap.com/0.1/en/places/radius?radius=500&lon=${coordinates.lon}&lat=${coordinates.lat}&limit=50&apikey=${process.env.REACT_APP_OPEN_TRIP_API_KEY}`
     const options = {
       method: "GET"
     }
@@ -56,6 +56,8 @@ function App() {
     const response = await fetch(URL, options)
     const results = await response.json()
     console.log('final search results', results.features)
+    setSearch(results.features)
+    console.log('updated search state', search)
   }
 
   
@@ -104,10 +106,9 @@ function App() {
         <Route path='/adventures' element={<AllAdventures adventures={adventures} />} />
         <Route path='/adventures/new' element={<NewAdventure adventures={adventures} setAdventures={setAdventures}/>} />
         <Route path='/adventures/:id' element={<AdventureDetails DeleteAdventure={DeleteAdventure}/>} />
-        <Route path='/search' element={<Search GrabCoordinates={GrabCoordinates}/>} />
+        <Route path='/search' element={<Search search={search} GrabCoordinates={GrabCoordinates}/>} />
         <Route path='/search/:id' element={<SearchDetails />} />
         <Route path='/adventures/update/:id' element={<AddStop />} />
-        
       </Routes>
     </div>
   );
