@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-
-
+import { Link } from 'react-router-dom'
+ 
 
 
 function Search(props) {
@@ -30,7 +30,7 @@ console.log('search input', e.target[0].value)
 <div className='search-results'>
     {search && search.map((result, index) => (
         <div key={index}>
-            <p>{result.properties.name}</p>
+            <Link to={`/search/${result.properties.xid}`}><p>{result.properties.name}</p></Link>
         </div>
     ))}
 
