@@ -28,7 +28,11 @@ console.log('search input', e.target[0].value)
             <button>Search</button>
         </form>
 <div className='search-results'>
-    
+    {search && search.map((result, index) => (
+        <div key={index}>
+            <p>{result.properties.name}</p>
+        </div>
+    ))}
 
 </div>
     </div>)
