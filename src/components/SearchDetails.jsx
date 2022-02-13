@@ -37,7 +37,7 @@ function SearchDetails() {
 
     function NoHasImage(){
         return (<div>
-            {console.log(info)}
+            {console.log("YES")}
             <h2>{info.name}</h2>
             <div className="address">
             <h3>Address:</h3>
