@@ -1,10 +1,10 @@
 import { paste } from '@testing-library/user-event/dist/paste'
 import { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function NewAdventure(props) {
-    const {adventures} = props
-    const {setAdventures} = props
+    const { adventures } = props
+    const { setAdventures } = props
     const navigate = useNavigate()
 
     let initialInput = {
@@ -19,7 +19,7 @@ function NewAdventure(props) {
         initialInput.name = e.target.value
         console.log('changed input', initialInput)
     }
-    
+
     const handleStopsNameChange = (e) => {
         initialInput.stops[0].name = e.target.value
         console.log('changed input', initialInput)
@@ -46,52 +46,58 @@ function NewAdventure(props) {
                 "Content-type": "application/json"
             }
         }
-        try{
+        try {
             // console.log('data inside newadventure', data)
             const createdAdventure = await fetch(URL, options)
             const parsedAdventure = await createdAdventure.json()
             console.log('parsed adventure', parsedAdventure)
             setAdventures([...adventures, parsedAdventure])
             navigate('/adventures')
-        }catch(err){
+        } catch (err) {
             console.log('newadventure errrorrr', err)
         }
     }
 
-    return (<div>
-        <h1>New Adventure Plan</h1>
+    return (<div className='new-form'>
 
         <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Plan Name:</label>
-            <input 
-            name="name" 
-            id="title" 
-            type="text" 
-            placeholder="New Adventure Title"
-            onChange={handlePlanNameChange} 
-            />
-
-            <label htmlFor="stop">New Stop Name:</label>
-            <input 
-            name="stops-name" 
-            id="stop" 
-            type="text" 
-            placeholder="New Stop Name"
-            onChange={handleStopsNameChange} 
-            />
-
-            <label htmlFor="description">Stop Description:</label>
-            <textarea 
-            name="stops-description" 
-            id="description" 
-            cols="30" 
-            rows="10"
-            onChange={handleStopsDescriptionChange}
-            ></textarea>
-
-            <button>Create New Plan</button>
+            <h1 className='title'>New Adventure Plan</h1>
+            <ul className='new-list'>
+                <li>
+                    <label htmlFor="title">Plan Name:</label>
+                    <input
+                        name="name"
+                        id="title"
+                        type="text"
+                        placeholder="New Adventure Title"
+                        onChange={handlePlanNameChange}
+                    />
+                </li>
+                <li>
+                    <label htmlFor="stop">New Stop Name:</label>
+                    <input
+                        name="stops-name"
+                        id="stop"
+                        type="text"
+                        placeholder="New Stop Name"
+                        onChange={handleStopsNameChange}
+                    />
+                </li>
+                <li>
+                    <label htmlFor="description">Stop Description:</label>
+                    <textarea
+                        name="stops-description"
+                        id="description"
+                        cols="30"
+                        rows="10"
+                        onChange={handleStopsDescriptionChange}
+                    ></textarea>
+                </li>
+                <li>
+                    <button>Create New Plan</button>
+                </li>
+            </ul>
         </form>
-
     </div>)
 }
 

@@ -6,13 +6,16 @@ function Navigation() {
 
 
     return (
-        <div className='navigation links'>
-
-            <Link to="/"><h1>Home</h1></Link>
-            <Link to="/adventures">All Adventures</Link>
-            <Link to="/adventures/new">New Adventure</Link>
-            <Link to="/search">Search for Cool Places</Link>
-        </div>
+        <nav className='navigation'>
+            <div className='home'>
+                <Link className='home-link' to="/"><h1>Home</h1></Link>
+            </div>
+            <div className='links'>
+                <Link className='text-link' to="/adventures">All Adventures</Link>
+                <Link className='text-link' to="/adventures/new">New Adventure</Link>
+                <Link className='text-link' to="/search">Search for Cool Places</Link>
+            </div>
+        </nav>
 
     )
 }
