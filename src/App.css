@@ -5,8 +5,8 @@
 
 }
 
-body {
-  text-align: center;
+.main-body {
+  /* text-align: center; */
   background-image: url('./images/DSC02593.JPG');
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   color: white;
-  background-color: rgba(13, 39, 7, 0.473);
+  background-color: rgba(7, 27, 2, 0.473);
   text-decoration: none;
   
   padding: 20px;
