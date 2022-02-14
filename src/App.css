@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500&display=swap');
+* {
+  font-family: 'Advent Pro', sans-serif;
+
+
+}
+
+body {
+  text-align: center;
+  background-image: url('./images/DSC02593.JPG');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.navigation {
+  height: 100%;
+  position: fixed;
+  /* z-index: 1; */
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: rgba(13, 39, 7, 0.473);
+  text-decoration: none;
+  
+  padding: 20px;
+
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+
+}
+
+.text-link {
+  text-decoration: none;
+  color: rgb(177, 209, 178);
+  padding: 20px;
+  transition: 300ms;
+}
+
+.text-link:hover {
+  background-color: rgb(61, 95, 30);
+}
+
+.home-link {
+  text-decoration: none;
+  color: rgb(177, 209, 178);
+  font-size: 30px;
+}
+
+.home-link:hover {
+  background-color: rgb(102, 153, 54);
+  transform: scale(1.1);
+}
+
+.adventures-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adventures-page {
+  margin-top: 10vh;
+  background-color: rgba(16, 51, 8, 0.685);
+  color: rgb(177, 209, 178);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 50px 50px 50px;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.adventure-link {
+  text-decoration: none;
+  color: rgb(177, 209, 178)
+}
