@@ -107,7 +107,7 @@ function App() {
         <Route path='/adventures/new' element={<NewAdventure adventures={adventures} setAdventures={setAdventures}/>} />
         <Route path='/adventures/:id' element={<AdventureDetails DeleteAdventure={DeleteAdventure}/>} />
         <Route path='/search' element={<Search search={search} GrabCoordinates={GrabCoordinates}/>} />
-        <Route path='/search/:id' element={<SearchDetails />} />
+        <Route path='/search/:id' element={<SearchDetails adventures={adventures}/>} />
         <Route path='/adventures/update/:id' element={<AddStop />} />
       </Routes>
     </div>
