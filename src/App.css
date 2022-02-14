@@ -8,7 +8,8 @@
 
 .main-body {
   /* text-align: center; */
-  background-image: url('./images/DSC02593.JPG');
+  background-image: url('https://i.imgur.com/l2vpLRR.jpg');
+  background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -114,6 +115,11 @@ input, textarea {
   max-width: 35vw;
   padding: 30px;
 
+}
+
+.one-adventure:hover {
+  background-color: rgb(19, 73, 28);
+  color:rgb(37, 25, 7)
 }
 
 .new-list, li {

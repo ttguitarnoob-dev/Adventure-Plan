@@ -11,7 +11,7 @@ function AllAdventures(props) {
                 <div className="adventures-list">
                     <ul>
                         {adventures && adventures.map((adventure, index) => (
-                            <li>
+                            <li className='one-adventure'>
                                 <div className="individual-adventure" key={adventure._id} id={`adventure-${index}`}>
                                     <Link className='adventure-link' to={`/adventures/${adventure._id}`}>{adventure.name}</Link>
                                 </div>
