@@ -1,12 +1,12 @@
 
-import {useParams, useNavigate} from 'react-router-dom'
-import {useState, useEffect} from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
-function AddStop(){
+function AddStop() {
     const navigate = useNavigate()
-    const {id} = useParams()
+    const { id } = useParams()
     const [adventure, setAdventure] = useState({})
-    let editedAdventure = {adventure}
+    let editedAdventure = { adventure }
     const handleFetch = async () => {
         try {
             //URL will need to be the heroku backend server
@@ -15,7 +15,7 @@ function AddStop(){
             const foundAdventure = await response.json()
             console.log('found adventure', foundAdventure)
             setAdventure(foundAdventure)
-        } catch(err){
+        } catch (err) {
             console.log('adventure details fetch errrr', err)
         }
     }
@@ -37,7 +37,7 @@ function AddStop(){
         console.log("this is what's going into the update adventure function", adventure)
         updateAdventure(adventure)
     }
-console.log('wow')
+    console.log('wow')
     const updateAdventure = async (data) => {
         //URL will need to be the heroku backend address
         const URL = `http://localhost:8000/adventures/${id}`
@@ -48,30 +48,40 @@ console.log('wow')
                 "Content-type": "application/json"
             }
         }
-        try{
+        try {
             const updatedAdventure = await fetch(URL, options)
             navigate(`/adventures/${id}`)
-        }catch(err){
+        } catch (err) {
             console.log('updateadventure errreerr', err)
         }
     }
 
-    return(<div>
-        <h1>add stop page</h1>
-        <h2>{adventure.name}</h2>
-        {adventure.stops && adventure.stops.map((oneStop, index) => (
-        <div className='stop-details' key={index}>
-                <h2 className='stop-name'>Stop {index +1}:</h2>
-                <h3>{oneStop.name}</h3>
-                 <p>{oneStop.description}</p>
-        </div>
+    return (<div className='container'>
+        <div className='search-details'>
+            <h2>{adventure.name}</h2>
+            {adventure.stops && adventure.stops.map((oneStop, index) => (
+                <div className='stop-details' key={index}>
+                    <h2 className='stop-name'>Stop {index + 1}:</h2>
+                    <h3>{oneStop.name}</h3>
+                    <p>{oneStop.description}</p>
+                </div>
             ))}
             <form onSubmit={handleSubmit}>
-            <label htmlFor="stop">New Stop Name:</label>
-                <input type="text" name="stop" placeholder='New Stop Name Here' />
-                <textarea name="stop-description" id="" cols="30" rows="10"></textarea>
-                <button>Add Stop</button>
+                <ul>
+                    <li>
+                        <label htmlFor="stop">New Stop Name:</label>
+                        <input type="text" name="stop" placeholder='New Stop Name Here' />
+                    </li>
+                    <li>
+                        <label htmlFor="new-details">New Stop Name:</label>
+                        <textarea name="stop-description" id="new-details" cols="30" rows="10"></textarea>
+                    </li>
+                    <li>
+                        <button>Add Stop</button>
+                    </li>
+                </ul>
             </form>
+        </div>
     </div>)
 }
 

@@ -37,6 +37,7 @@
 .text-link {
   text-decoration: none;
   padding: 20px;
+  border-radius: 10px;
   transition: 300ms;
 }
 
@@ -194,4 +195,41 @@ button:hover {
   width: 30vw;
   margin-right: 20px;
   box-shadow: rgb(0, 0, 0) 0px 2px 4px, rgb(0, 0, 0) 0px 7px 13px -3px, rgb(0, 0, 0) 0px -3px 0px inset;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-details {
+  margin-top: 4vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(58, 46, 30);
+  max-width: fit-content;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+img {
+  margin-top: 2vh;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 20px;
+}
+
+.address {
+  background-color: rgb(37, 25, 7);
+  padding: 30px;
+  margin-top: 4vh;
+  border-radius: 20px;
+}
+
+.stop-details {
+  background-color: rgb(37, 25, 7);
+  padding: 30px;
+  margin-top: 4vh;
+  border-radius: 20px;
 }

@@ -9,11 +9,15 @@ function AllAdventures(props) {
             <div className="adventures-page">
                 <h1>All Adventures</h1>
                 <div className="adventures-list">
-                    {adventures && adventures.map((adventure, index) => (
-                        <div className="individual-adventure" key={adventure._id} id={`adventure-${index}`}>
-                            <Link className='adventure-link' to={`/adventures/${adventure._id}`}>{adventure.name}</Link>
-                        </div>
-                    ))}
+                    <ul>
+                        {adventures && adventures.map((adventure, index) => (
+                            <li>
+                                <div className="individual-adventure" key={adventure._id} id={`adventure-${index}`}>
+                                    <Link className='adventure-link' to={`/adventures/${adventure._id}`}>{adventure.name}</Link>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>

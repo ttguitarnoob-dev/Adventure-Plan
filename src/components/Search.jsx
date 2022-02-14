@@ -32,8 +32,8 @@ function Search(props) {
         <div className='search-results'>
             <h3>Search Results:</h3>
             {search && search.map((result, index) => (
-                <Link className='search-link' to={`/search/${result.properties.xid}`}>
-                    <div className='individual-result' key={index}>
+                <Link key={index} className='search-link' to={`/search/${result.properties.xid}`}>
+                    <div className='individual-result' >
                         <p>{result.properties.name}</p>
                     </div>
                 </Link>
