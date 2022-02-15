@@ -7,7 +7,7 @@ function SearchDetails(props) {
     const { adventures } = props
     const { id } = useParams()
     const [info, setInfo] = useState(null)
-    const [adventureId, setAdventureId] = useState('')
+    const [adventureId, setAdventureId] = useState()
     const [allAdventures, setAllAdventures] = useState({})
     //URL will need to be the heroku backend address
     let BEURL = `http://localhost:8000/adventures/`
@@ -15,7 +15,8 @@ function SearchDetails(props) {
         method: "GET"
     }
     const URL = `https://api.opentripmap.com/0.1/en/places/xid/${id}?apikey=5ae2e3f221c38a28845f05b6c67374d584cd2b24c51eb1cc312c6506`
-    console.log('should be same as xid', URL)
+
+    //FUNCTIONS
     const handleFetch = async () => {
         try {
             const response = await fetch(URL, options)
@@ -31,10 +32,15 @@ function SearchDetails(props) {
         e.preventDefault()
         for (let i = 0; i < e.target[0].length; i++) {
             if (e.target[i].value) {
+                let id = e.target[i].value
                 //URL will need to be the heroku backend address
-         BEURL = `http://localhost:8000/adventures/${e.target[i].value}`
-                setAdventureId(e.target[i].value)
+                setAdventureId(id)
                 console.log('location info???????', adventureId)
+         BEURL = `http://localhost:8000/adventures/${e.target[i].value}`
+         console.log('beurl', BEURL)
+
+                    
+
                 getSelectedAdventure()
             } else {
                 return
@@ -54,7 +60,7 @@ function SearchDetails(props) {
         }
         try{
             const updatedAdventure = await fetch(BEURL, options)
-            navigate(`/adventures/${adventureId}`)
+            navigate(`/adventures`)
         }catch(err){
             console.log('tried to add stop but no work', err)
         }

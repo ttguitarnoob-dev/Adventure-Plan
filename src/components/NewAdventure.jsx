@@ -17,22 +17,22 @@ function NewAdventure(props) {
 
     const handlePlanNameChange = (e) => {
         initialInput.name = e.target.value
-        console.log('changed input', initialInput)
+
     }
 
     const handleStopsNameChange = (e) => {
         initialInput.stops[0].name = e.target.value
-        console.log('changed input', initialInput)
+
     }
 
     const handleStopsDescriptionChange = (e) => {
         initialInput.stops[0].description = e.target.value
-        console.log('changed input', initialInput)
+
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('submititit this', initialInput)
+
         newAdventure(initialInput)
     }
 
@@ -50,7 +50,7 @@ function NewAdventure(props) {
             // console.log('data inside newadventure', data)
             const createdAdventure = await fetch(URL, options)
             const parsedAdventure = await createdAdventure.json()
-            console.log('parsed adventure', parsedAdventure)
+
             setAdventures([...adventures, parsedAdventure])
             navigate('/adventures')
         } catch (err) {
