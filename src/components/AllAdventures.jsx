@@ -12,9 +12,11 @@ function AllAdventures(props) {
                     <ul>
                         {adventures && adventures.map((adventure, index) => (
                             <li key={adventure._id} className='one-adventure'>
+
                                 <div className="individual-adventure"  id={`adventure-${index}`}>
                                     <Link className='adventure-link' to={`/adventures/${adventure._id}`}>{adventure.name}</Link>
                                 </div>
+                                
                             </li>
                         ))}
                     </ul>

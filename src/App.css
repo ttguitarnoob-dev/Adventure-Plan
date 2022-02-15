@@ -37,9 +37,11 @@
 
 .text-link {
   text-decoration: none;
+  margin-top: 10px;
   padding: 20px;
   border-radius: 10px;
   transition: 300ms;
+  
 }
 
 .text-link:hover {
@@ -110,7 +112,7 @@ input, textarea {
   padding: 30px;
 }
 
-.new-list, li, label {
+.new-list, label {
   flex: 1 0 120px;
   max-width: 35vw;
   padding: 30px;
@@ -135,6 +137,7 @@ input, textarea {
 
 button {
   background-color: rgb(24, 54, 24);
+  margin-top: 4px;
   color: rgb(221, 221, 221);
   font-size: 20px;
   padding: 20px;
@@ -212,10 +215,11 @@ button:hover {
 .search-details {
   margin-top: 4vh;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   background-color: rgb(58, 46, 30);
-  max-width: fit-content;
+  width: 40vw;
   padding: 30px;
   border-radius: 20px;
 }
@@ -235,11 +239,17 @@ img {
 
 .stop-details {
   background-color: rgb(37, 25, 7);
-  padding: 30px;
-  margin-top: 4vh;
+  padding: 10px;
+  margin-top: 1vh;
   border-radius: 20px;
+  width: 100%;
 }
 
 #add {
   background-color: rgb(36, 25, 1);
+}
+
+.add-stop {
+  background-color: rgb(24, 54, 24);
+  border: 2px solid black;
 }

@@ -41,19 +41,18 @@ let getChangedPos = (currentPos, newPos) => {
             {adventure.stops && adventure.stops.map((oneStop, index) => (
 
                     <div key={index} className='stop-details'>
-                        <ul>
-                            <li className='stop-details' >
-                                <h2 className='stop-name'>Stop {index + 1}:</h2>
-                                <h3>{oneStop.name}</h3>
+
+
+                                <h2 className='stop-name'>Stop {index + 1}: {oneStop.name}</h2>
+                                <h3></h3>
                                 <p>{oneStop.description}</p>
-                            </li>
-                        </ul>
+
                     </div>
 
             ))}
-            <Link className='text-link' to={`/adventures/update/${id}`}>Add a Stop</Link>
+            <Link className='text-link add-stop' to={`/adventures/update/${id}`}>Add a Stop</Link>
             <form onSubmit={handleSubmit}>
-                <button>Delete This Adventure Plan</button>
+                <button className='button'>Delete This Adventure Plan</button>
             </form>
         </div>
 
