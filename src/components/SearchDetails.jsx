@@ -117,12 +117,17 @@ function SearchDetails(props) {
                 {console.log("YES")}
                 <h2>{info.name}</h2>
                 <Link className="text-link" to={'/search'} >Back to Search Results</Link>
-                <label htmlFor="add">Add Stop To Adventure</label>
-                <select name="" id="add">
-                    {adventures && adventures.map((adventure, index) => (
-                        <option key={index} value={adventure.name}>{adventure.name}</option>
-                    ))}
-                </select>
+                <form onSubmit={handleSubmit} >
+                    <label htmlFor="add">Add Stop To Adventure</label>
+                    <select id="add">
+                        {adventures && adventures.map((adventure, index) => (
+                            <option key={index} value={adventure._id}>{adventure.name}</option>
+                        ))}
+                    </select>
+                    <button>Add</button>
+                </form>
+                
+
                 <div className="address">
                     <h3>Address:</h3>
                     <p>{info.address.house_number} {info.address.road}</p>
