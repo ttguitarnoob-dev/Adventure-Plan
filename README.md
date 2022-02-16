@@ -29,16 +29,16 @@ I am building an adventure planning app.  It will be a simple app that allows us
 
 ### MVP User Stories
 
--As a user, I want to be able to create a trip itinerary with multiple stops
--As a user, I want to see all of my created trips in a list.
--As a user, I would like to see details of the trip when I click on it.
--As a user, I want to search for interesting stops near the area I’m planning to travel to.
--As a user, I want to see details about the searched locations when I click on them.
+1. As a user, I want to be able to create a trip itinerary with multiple stops
+    -As a user, I want to see all of my created trips in a list.
+     -As a user, I would like to see details of the trip when I click on it.
+     -As a user, I want to search for interesting stops near the area I’m planning to travel to.
+     -As a user, I want to see details about the searched locations when I click on them.
 
 ### Stretch Goal User Stories
--As a user, I would like to click and drag stops to reorder them.
--As a user, I would like to login to my personal profile so that all my trips are displayed to just me.
--As a user, I want to be able to search for locations while I’m creating my itinerary, and add the location as a stop.
+1. As a user, I would like to click and drag stops to reorder them.
+    -As a user, I would like to login to my personal profile so that all my trips are displayed to just me.
+    -As a user, I want to be able to search for locations while I’m creating my itinerary, and add the location as a stop.
 
 ## API
 OpenTripMap API
