@@ -1,9 +1,15 @@
-# Adventure-Plan
+# Puddle Jumper!
+
+Deployed Site [here](https://friendly-austin-935131.netlify.app/)
+
 Easy to use adventure itinerary creator
 
-##Description
+## Description
 
 I am building an adventure planning app.  It will be a simple app that allows users to build a travel/adventure itinerary.  They will also be able to search a database of interesting places to get ideas.  
+![Screen Shot 2022-02-16 at 10 43 26 AM](https://user-images.githubusercontent.com/96032956/154330091-f1cc24e4-8ea8-49aa-9b27-b0305e9b169c.png)
+
+
 
 ##Wireframes
 ![Screen Shot 2022-02-10 at 9 29 26 AM](https://user-images.githubusercontent.com/96032956/153465813-6cf44fe2-5b9d-4f3b-a854-58acc7c13f6d.png)
@@ -21,7 +27,7 @@ I am building an adventure planning app.  It will be a simple app that allows us
 
 
 
-##MVP User Stories
+## MVP User Stories
 
 As a user, I want to be able to create a trip itinerary with multiple stops
 As a user, I want to see all of my created trips in a list.
@@ -34,7 +40,7 @@ As a user, I would like to click and drag stops to reorder them.
 As a user, I would like to login to my personal profile so that all my trips are displayed to just me.
 As a user, I want to be able to search for locations while I’m creating my itinerary, and add the location as a stop.
 
-##API
+## API
 OpenTripMap API
 
 
@@ -87,7 +93,7 @@ Response I got with my api key:
 
 
 
-##Component Hierarchy
+## Component Hierarchy
 ![Screen Shot 2022-02-10 at 10 29 45 AM](https://user-images.githubusercontent.com/96032956/153465878-4f690d19-fb89-4760-ad55-a473706c3133.png)
 
 
