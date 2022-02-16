@@ -38,7 +38,7 @@ function NewAdventure(props) {
 
     const newAdventure = async (data) => {
         //URL will need to be the heroku backend address
-        const URL = "http://localhost:8000/adventures"
+        const URL = "https://puddle-jumper.herokuapp.com/adventures"
         const options = {
             method: "POST",
             body: JSON.stringify(data),

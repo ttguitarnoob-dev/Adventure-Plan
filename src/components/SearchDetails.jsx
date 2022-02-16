@@ -10,7 +10,7 @@ function SearchDetails(props) {
     const [adventureId, setAdventureId] = useState()
     const [allAdventures, setAllAdventures] = useState({})
     //URL will need to be the heroku backend address
-    let BEURL = `http://localhost:8000/adventures/`
+    let BEURL = `https://puddle-jumper.herokuapp.com/adventures/`
     const options = {
         method: "GET"
     }
@@ -33,10 +33,9 @@ function SearchDetails(props) {
         for (let i = 0; i < e.target[0].length; i++) {
             if (e.target[i].value) {
                 let id = e.target[i].value
-                //URL will need to be the heroku backend address
                 setAdventureId(id)
                 console.log('location info???????', adventureId)
-         BEURL = `http://localhost:8000/adventures/${e.target[i].value}`
+         BEURL = `https://puddle-jumper.herokuapp.com/adventures/${e.target[i].value}`
          console.log('beurl', BEURL)
 
                     
@@ -68,7 +67,6 @@ function SearchDetails(props) {
     }
 
     const getSelectedAdventure = async () => {
-        //URL will need to be the heroku backend address
         const response = await fetch(BEURL)
         const foundAdventure = await response.json()
         console.log('founnndadventure', foundAdventure)

@@ -8,7 +8,7 @@ import { Draggable } from 'react-drag-reorder'
     const [adventure, setAdventure] = useState({})
     const { DeleteAdventure } = props
     //URL will need to be the heroku backend server
-    const URL = `http://localhost:8000/adventures/${id}`
+    const URL = `https://puddle-jumper.herokuapp.com/adventures/${id}`
     const handleFetch = async () => {
         try {
 
