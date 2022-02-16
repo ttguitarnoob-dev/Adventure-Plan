@@ -8,8 +8,8 @@
 
 .main-body {
   /* text-align: center; */
-  background-image: url('https://i.imgur.com/l2vpLRR.jpg');
-  background-color: black;
+  /* background-image: url('https://i.imgur.com/l2vpLRR.jpg'); */
+  background-color: rgb(22, 16, 6);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -62,7 +62,7 @@
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  background-color: rgba(0, 0, 0, 0.726);
+  /* background-color: rgba(0, 0, 0, 0.726); */
   min-height: 100vh;
 }
 
@@ -89,7 +89,7 @@ ul {
 }
 
 input, textarea {
-  background-color: rgb(211, 228, 203);
+  background-color: rgb(219, 209, 150);
   font-size: 20px;
   border: 2px solid black;
   padding: 10px;
@@ -252,4 +252,28 @@ img {
 .add-stop {
   background-color: rgb(24, 54, 24);
   border: 2px solid black;
+}
+
+.homely {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  
+  
+}
+
+.homelabel {
+  width: 40vw;
+  background-color: rgba(36, 20, 3, 0.863);
+  text-align: center;
+  padding: 20px;
+  margin-top: 30vh;
+  font-size: 30px;
+  border-radius: 90px;
+}
+
+.select-adv {
+  margin-right: 10px;
 }

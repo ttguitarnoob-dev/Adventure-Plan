@@ -13,10 +13,13 @@ import Navigation from './components/Navigation';
 import AddStop from './components/AddStop';
 function HomePage(){
   return(<>
-    <h1>Home Page</h1>
-    {/* <Link to="/adventures">All Adventures</Link>
-    <Link to="/adventures/new">New Adventure</Link>
-    <Link to="/search">Search for Cool Places</Link> */}
+<div className='homely'>
+<div className='homelabel'>
+    <h1>Puddle Jumper!</h1>
+    <p>Welcome to Puddle Jumper!  Make an adventure itinerary and make sure it will make everyone jealous!</p>
+</div>
+</div>
+
   </>)
 }
 

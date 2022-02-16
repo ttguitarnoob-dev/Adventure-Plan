@@ -89,7 +89,7 @@ function SearchDetails(props) {
 
                 <form onSubmit={handleSubmit} >
                     <label htmlFor="add">Add Stop To Adventure</label>
-                    <select id="add">
+                    <select className="select-adv" id="add">
                         {adventures && adventures.map((adventure, index) => (
                             <option key={index} value={adventure._id}>{adventure.name}</option>
                         ))}
@@ -117,7 +117,7 @@ function SearchDetails(props) {
                 <Link className="text-link" to={'/search'} >Back to Search Results</Link>
                 <form onSubmit={handleSubmit} >
                     <label htmlFor="add">Add Stop To Adventure</label>
-                    <select id="add">
+                    <select className="select-adv" id="add">
                         {adventures && adventures.map((adventure, index) => (
                             <option key={index} value={adventure._id}>{adventure.name}</option>
                         ))}
