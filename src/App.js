@@ -66,7 +66,7 @@ function App() {
   
   const handleFetch = async () => {
     //URL will have to be the heroku address that I deploy the backend to
-    const URL = "http://localhost:8000/adventures/"
+    const URL = "https://puddle-jumper.herokuapp.com/adventures/"
     fetch(URL).then(resp => {
       return resp.json()
       .then(data => {
@@ -84,7 +84,7 @@ function App() {
   async function DeleteAdventure(id){
     
     //URL will need to be the heroku backend server
-    const DURL = `http://localhost:8000/adventures/${id}`
+    const DURL = `https://puddle-jumper.herokuapp.com/adventures/${id}`
     try{
       const response = await fetch(DURL, { method: "DELETE" })
       const deletedAdventure = await response.json()
@@ -107,7 +107,7 @@ function App() {
         <Route path='/adventures/new' element={<NewAdventure adventures={adventures} setAdventures={setAdventures}/>} />
         <Route path='/adventures/:id' element={<AdventureDetails DeleteAdventure={DeleteAdventure}/>} />
         <Route path='/search' element={<Search search={search} GrabCoordinates={GrabCoordinates}/>} />
-        <Route path='/search/:id' element={<SearchDetails />} />
+        <Route path='/search/:id' element={<SearchDetails adventures={adventures}/>} />
         <Route path='/adventures/update/:id' element={<AddStop />} />
       </Routes>
     </div>

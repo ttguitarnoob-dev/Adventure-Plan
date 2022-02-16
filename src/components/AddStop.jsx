@@ -10,7 +10,7 @@ function AddStop() {
     const handleFetch = async () => {
         try {
             //URL will need to be the heroku backend server
-            const URL = `http://localhost:8000/adventures/${id}`
+            const URL = `https://puddle-jumper.herokuapp.com/adventures/${id}`
             const response = await fetch(URL)
             const foundAdventure = await response.json()
             console.log('found adventure', foundAdventure)
@@ -40,7 +40,7 @@ function AddStop() {
     console.log('wow')
     const updateAdventure = async (data) => {
         //URL will need to be the heroku backend address
-        const URL = `http://localhost:8000/adventures/${id}`
+        const URL = `https://puddle-jumper.herokuapp.com/adventures/${id}`
         const options = {
             method: "PUT",
             body: JSON.stringify(data),
@@ -61,8 +61,8 @@ function AddStop() {
             <h2>{adventure.name}</h2>
             {adventure.stops && adventure.stops.map((oneStop, index) => (
                 <div className='stop-details' key={index}>
-                    <h2 className='stop-name'>Stop {index + 1}:</h2>
-                    <h3>{oneStop.name}</h3>
+                    <h2 className='stop-name'>Stop {index + 1}: {oneStop.name}</h2>
+                    <h3></h3>
                     <p>{oneStop.description}</p>
                 </div>
             ))}
