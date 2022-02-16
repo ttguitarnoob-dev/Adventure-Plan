@@ -1,6 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Draggable } from 'react-drag-reorder'
 
 
  function AdventureDetails(props) {
@@ -11,10 +10,8 @@ import { Draggable } from 'react-drag-reorder'
     const URL = `https://puddle-jumper.herokuapp.com/adventures/${id}`
     const handleFetch = async () => {
         try {
-
             const response = await fetch(URL)
             const foundAdventure = await response.json()
-            console.log('found adventure', foundAdventure)
             setAdventure(foundAdventure)
         } catch (err) {
             console.log('adventure details fetch errrr', err)
@@ -31,10 +28,6 @@ import { Draggable } from 'react-drag-reorder'
     }
 
 
-let getChangedPos = (currentPos, newPos) => {
-    console.log(currentPos, newPos)
-}
-    console.log('adventureestiops', adventure.stops)
     return (<div className='container'>
         <div className='search-details'>
             <h1>{adventure.name}</h1>
@@ -55,11 +48,6 @@ let getChangedPos = (currentPos, newPos) => {
                 <button className='button'>Delete This Adventure Plan</button>
             </form>
         </div>
-
-
-
-
-        {/* <p>{adventure.stops.name}</p> */}
     </div>)
 }
 

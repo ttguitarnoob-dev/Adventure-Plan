@@ -32,7 +32,6 @@ function NewAdventure(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
         newAdventure(initialInput)
     }
 
@@ -47,10 +46,8 @@ function NewAdventure(props) {
             }
         }
         try {
-            // console.log('data inside newadventure', data)
             const createdAdventure = await fetch(URL, options)
             const parsedAdventure = await createdAdventure.json()
-
             setAdventures([...adventures, parsedAdventure])
             navigate('/adventures')
         } catch (err) {

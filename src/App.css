@@ -7,8 +7,6 @@
 }
 
 .main-body {
-  /* text-align: center; */
-  /* background-image: url('https://i.imgur.com/l2vpLRR.jpg'); */
   background-color: rgb(22, 16, 6);
   background-size: cover;
   background-repeat: no-repeat;
@@ -16,16 +14,13 @@
 .navigation {
   height: 100%;
   position: fixed;
-  /* z-index: 1; */
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
   background-color: rgba(7, 27, 2, 0.473);
   text-decoration: none;
-  
   padding: 20px;
-
 }
 
 .links {
@@ -61,21 +56,15 @@
 .adventures-body {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  /* background-color: rgba(0, 0, 0, 0.726); */
   min-height: 100vh;
 }
 
 .adventures-page {
-  /* margin-top: 10vh; */
   background-color: rgba(16, 51, 8, 0.685);
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   padding: 15px 50px 50px 30px;
-  /* border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 
 .adventure-link {
@@ -106,7 +95,6 @@ input, textarea {
 .new-list {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   justify-content: flex-start;
   align-items: flex-start;
   padding: 30px;
@@ -116,7 +104,6 @@ input, textarea {
   flex: 1 0 120px;
   max-width: 35vw;
   padding: 30px;
-
 }
 
 .one-adventure:hover {
@@ -125,12 +112,10 @@ input, textarea {
 }
 
 .new-list, li {
-  /* margin-left: auto; */
   margin-top: 2vh;
   padding: 10px 26px;
   border: none;
   background:rgb(46, 37, 13);
-
   letter-spacing: .09em;
   border-radius: 22px;
 }
@@ -152,7 +137,6 @@ button:hover {
 }
 
 .search {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,7 +145,7 @@ button:hover {
 }
 
 .title {
-  background-color: rgba(3, 10, 1, 0.87);
+  background-color: rgb(46, 37, 13);
   padding: 20px;
   border-radius: 30px;
 }
@@ -170,17 +154,14 @@ button:hover {
   margin: 7vh;
   background-color: rgb(105, 129, 105);
   display: flex;
-
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 70vw;
   padding: 20px;
   border-radius: 10px;
-
 }
 
 .individual-result {
-  
   padding: 10px;
   margin: 3px;
   background-color: rgb(63, 50, 6);
@@ -200,7 +181,6 @@ button:hover {
 }
 
 #city {
-  
   width: 30vw;
   margin-right: 20px;
   box-shadow: rgb(0, 0, 0) 0px 2px 4px, rgb(0, 0, 0) 0px 7px 13px -3px, rgb(0, 0, 0) 0px -3px 0px inset;

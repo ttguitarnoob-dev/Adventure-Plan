@@ -10,7 +10,6 @@ function Search(props) {
     function HandleSubmit(e) {
         e.preventDefault()
         const denver = "Denver"
-        console.log('search input', e.target[0].value)
         GrabCoordinates(e.target[0].value)
 
     }

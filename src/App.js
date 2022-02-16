@@ -40,11 +40,8 @@ function App() {
       const options = {
         method: "GET"
       }
-      console.log('searched URL isssisis', URL)
-  
       const response = await fetch(URL, options)
       const coordinates = await response.json()
-      console.log('coordinates', coordinates)
       LocationResults(coordinates)
     }
 
@@ -55,12 +52,9 @@ function App() {
     const options = {
       method: "GET"
     }
-    console.log('searched lon lat url is', URL)
     const response = await fetch(URL, options)
     const results = await response.json()
-    console.log('final search results', results.features)
     setSearch(results.features)
-    console.log('updated search state', search)
   }
 
   
@@ -73,7 +67,6 @@ function App() {
     fetch(URL).then(resp => {
       return resp.json()
       .then(data => {
-        console.log('handlefetch', data)
         setAdventures(data)
       })
     })
@@ -85,7 +78,6 @@ function App() {
   }, [])
 
   async function DeleteAdventure(id){
-    
     //URL will need to be the heroku backend server
     const DURL = `https://puddle-jumper.herokuapp.com/adventures/${id}`
     try{
@@ -94,13 +86,10 @@ function App() {
       const updatedAdventureList = adventures.filter(adventure => adventure._id !== deletedAdventure._id)
       setAdventures(updatedAdventureList)
       navigate('/adventures')
-
     }catch(err) {
       console.log('deleting errrror', err)
     }
   }
-
-  console.log('current main data state', adventures)
   return (
     <div className="App">
     <Navigation />

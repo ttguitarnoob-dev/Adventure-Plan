@@ -2,9 +2,7 @@ import { Link } from 'react-router-dom'
 
 function AllAdventures(props) {
     const { adventures } = props
-    console.log('all adventures props', props)
     return (
-
         <div className='adventures-body'>
             <div className="adventures-page">
                 <h1>All Adventures</h1>
@@ -23,7 +21,6 @@ function AllAdventures(props) {
                 </div>
             </div>
         </div>
-
     )
 }
 

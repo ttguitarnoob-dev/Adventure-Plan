@@ -13,7 +13,6 @@ function AddStop() {
             const URL = `https://puddle-jumper.herokuapp.com/adventures/${id}`
             const response = await fetch(URL)
             const foundAdventure = await response.json()
-            console.log('found adventure', foundAdventure)
             setAdventure(foundAdventure)
         } catch (err) {
             console.log('adventure details fetch errrr', err)
@@ -24,20 +23,15 @@ function AddStop() {
         handleFetch()
     }, [])
 
-    const handleStopChange = (e) => {
-        console.log('omg')
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
         adventure.stops.push({
             name: e.target[0].value,
             description: e.target[1].value
         })
-        console.log("this is what's going into the update adventure function", adventure)
         updateAdventure(adventure)
     }
-    console.log('wow')
+
     const updateAdventure = async (data) => {
         //URL will need to be the heroku backend address
         const URL = `https://puddle-jumper.herokuapp.com/adventures/${id}`
@@ -73,7 +67,7 @@ function AddStop() {
                         <input type="text" name="stop" placeholder='New Stop Name Here' />
                     </li>
                     <li>
-                        <label htmlFor="new-details">New Stop Name:</label>
+                        <label htmlFor="new-details">New Stop Description:</label>
                         <textarea name="stop-description" id="new-details" cols="30" rows="10"></textarea>
                     </li>
                     <li>

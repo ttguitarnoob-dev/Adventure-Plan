@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { useParams, Link, useNavigate } from "react-router-dom"
 
 
@@ -21,7 +21,6 @@ function SearchDetails(props) {
         try {
             const response = await fetch(URL, options)
             const foundItem = await response.json()
-            console.log('found item', foundItem)
             setInfo(foundItem)
         } catch (err) {
             console.log('searchdetails errerro', err)
@@ -34,12 +33,7 @@ function SearchDetails(props) {
             if (e.target[i].value) {
                 let id = e.target[i].value
                 setAdventureId(id)
-                console.log('location info???????', adventureId)
-         BEURL = `https://puddle-jumper.herokuapp.com/adventures/${e.target[i].value}`
-         console.log('beurl', BEURL)
-
-                    
-
+                BEURL = `https://puddle-jumper.herokuapp.com/adventures/${e.target[i].value}`
                 getSelectedAdventure()
             } else {
                 return
@@ -48,19 +42,17 @@ function SearchDetails(props) {
     }
 
     const updateAdventure = async (data) => {
-
-        console.log('put url is:', BEURL, data)
         const options = {
-            method: "PUT", 
+            method: "PUT",
             body: JSON.stringify(data),
             headers: {
                 "Content-type": "application/json"
             }
         }
-        try{
+        try {
             const updatedAdventure = await fetch(BEURL, options)
             navigate(`/adventures`)
-        }catch(err){
+        } catch (err) {
             console.log('tried to add stop but no work', err)
         }
 
@@ -69,7 +61,6 @@ function SearchDetails(props) {
     const getSelectedAdventure = async () => {
         const response = await fetch(BEURL)
         const foundAdventure = await response.json()
-        console.log('founnndadventure', foundAdventure)
         foundAdventure.stops.push({
             name: info.name,
             description: `Address: ${info.address.house_number} ${info.address.road} ${info.address.city}, ${info.address.state}`
@@ -77,12 +68,9 @@ function SearchDetails(props) {
         updateAdventure(foundAdventure)
     }
 
-
-    console.log('search details props', adventures)
     function HasImage() {
         return (<div className="container">
             <div className="search-details">
-                {console.log(info)}
                 <h2>{info.name}</h2>
 
                 <Link className="text-link" to={'/search'} >Back to Search Results</Link>
@@ -112,7 +100,6 @@ function SearchDetails(props) {
     function NoHasImage() {
         return (<div className="container">
             <div className="search-details">
-                {console.log("YES")}
                 <h2>{info.name}</h2>
                 <Link className="text-link" to={'/search'} >Back to Search Results</Link>
                 <form onSubmit={handleSubmit} >
@@ -124,7 +111,7 @@ function SearchDetails(props) {
                     </select>
                     <button>Add</button>
                 </form>
-                
+
 
                 <div className="address">
                     <h3>Address:</h3>
@@ -140,7 +127,9 @@ function SearchDetails(props) {
     }, [])
 
     if (!info) {
-        return <p>Please wait while we retreive your request...</p>
+        return(<div className="search">
+            <p className="title">Please wait while we retreive your request...</p>
+        </div>)
     }
     if (info.preview) {
         return <HasImage />
